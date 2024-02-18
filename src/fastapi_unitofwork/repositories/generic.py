@@ -1,4 +1,4 @@
-from typing import TypeVar, Generic, Optional
+from typing import TypeVar, Generic
 from abc import ABC, abstractmethod
 
 from src.fastapi_unitofwork.models.basemodel import BaseModel

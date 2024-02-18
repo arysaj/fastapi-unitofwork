@@ -3,15 +3,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
 from typing import Annotated
 
-from src.fastapi_unitofwork.repositories.hero import HeroRepositoryBase, HeroRepository
-from src.fastapi_unitofwork.repositories.team import TeamRepositoryBase, TeamRepository
 from src.fastapi_unitofwork.repositories.user import UserRepositoryBase, UserRepository
 from src.fastapi_unitofwork.configs.database import get_async_session
 
 
 class UnitOfWorkBase(ABC):
-    heroes: HeroRepositoryBase
-    teams: TeamRepositoryBase
     users: UserRepositoryBase
 
     async def __aenter__(self):
@@ -37,8 +33,6 @@ class UnitOfWork(UnitOfWorkBase):
 
     async def __aenter__(self):
         self._session = self._session_factory
-        self.heroes = HeroRepository(self._session)
-        self.teams = TeamRepository(self._session)
         self.users = UserRepository(self._session)
         return super().__aenter__()
 

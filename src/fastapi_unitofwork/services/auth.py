@@ -5,7 +5,6 @@ from passlib.context import CryptContext
 
 from fastapi import HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from pydantic import ValidationError
 
 from src.fastapi_unitofwork.configs.settings import get_settings
 from src.fastapi_unitofwork.services.uow import UnitOfWorkBase
