@@ -1,0 +1,5 @@
+*.pptx
+*.db
+__pycache__
+*.ipynb
+.idea
